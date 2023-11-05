@@ -1,0 +1,12 @@
+[Unit]
+Description=Turns off the keyboard light in tablet mode
+Documentation=https://github.com/ChocolateLoverRaj/tablet-mode-keyboard-light
+After=local-fs.target acpid.service
+Requires=acpid.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tablet-mode-keyboard-light
+
+[Install]
+WantedBy=multi-user.target

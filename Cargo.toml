@@ -1,0 +1,18 @@
+[package]
+name = "tablet-mode-keyboard-light"
+description = "Turns off the keyboard light in tablet mode"
+version = "0.2.1"
+edition = "2021"
+repository = "https://github.com/ChocolateLoverRaj/tablet-mode-keyboard-light"
+license = "MIT"
+
+[dependencies]
+glob = "0.3.1"
+
+[package.metadata.generate-rpm]
+assets = [
+  { source = "target/release/tablet-mode-keyboard-light", dest = "/usr/bin/tablet-mode-keyboard-light", mode = "755" },
+  { source = "tablet-mode-keyboard-light.service", dest = "/usr/lib/systemd/system/tablet-mode-keyboard-light.service" },
+]
+[package.metadata.generate-rpm.requires]
+acpid = "*"
